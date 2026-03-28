@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité — Rengaine</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0D0D0D;
+      --surface:   #1A1A1A;
+      --surface2:  #242424;
+      --separator: #2A2A2A;
+      --accent:    #A78BFA;
+      --text:      #FFFFFF;
+      --muted:     #A0A0A0;
+      --dim:       #555555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── GRAIN OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      margin-bottom: 64px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--separator);
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .logo-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--dim);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── PILL BADGE ── */
+    .badge {
+      display: inline-block;
+      background: var(--surface2);
+      border: 1px solid var(--separator);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight {
+      background: var(--surface);
+      border: 1px solid var(--separator);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 40px 0;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .highlight strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      margin-bottom: 52px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+
+    ul li {
+      font-size: 15px;
+      color: var(--muted);
+      padding: 8px 0 8px 20px;
+      border-bottom: 1px solid var(--separator);
+      position: relative;
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--dim);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-color: var(--accent); }
+
+    /* ── DIVIDER ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--separator);
+      margin: 48px 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--separator);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--dim);
+      margin: 0;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px;
+      color: var(--dim);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <header>
+      <div class="logo-row">
+        <div class="logo-dot">🎵</div>
+        <span class="logo-name">Rengaine</span>
+      </div>
+      <div class="badge">Confidentialité</div>
+      <h1>Politique de<br>confidentialité</h1>
+      <p class="meta">Dernière mise à jour — Janvier 2025</p>
+    </header>
+
+    <div class="highlight">
+      <strong>En résumé :</strong> Rengaine ne collecte aucune donnée personnelle.
+      Toutes tes informations restent sur ton appareil, uniquement.
+      Aucun serveur, aucun compte, aucune donnée transmise.
+    </div>
+
+    <section>
+      <h2>Vue d'ensemble</h2>
+      <p>
+        Rengaine est une application iOS de journal musical personnel. Elle te permet de noter
+        des albums et des titres, de gérer une liste d'écoute, et d'explorer des artistes.
+      </p>
+      <p>
+        Cette politique de confidentialité explique comment l'application traite tes données.
+        La réponse courte : elle ne les traite pas. Tout reste sur ton appareil.
+      </p>
+    </section>
+
+    <section>
+      <h2>Données collectées</h2>
+      <p>Rengaine ne collecte, ne stocke et ne transmet <strong style="color: var(--text)">aucune donnée personnelle</strong>.</p>
+      <p>L'application ne dispose d'aucun compte utilisateur, d'aucun backend, d'aucun service d'analyse.</p>
+    </section>
+
+    <section>
+      <h2>Données stockées localement</h2>
+      <p>
+        Les données que tu crées dans Rengaine (reviews, notes, commentaires, profil, watchlist)
+        sont stockées exclusivement sur ton appareil via CoreData, le système de persistance
+        natif d'Apple. Elles ne quittent jamais ton iPhone.
+      </p>
+      <ul>
+        <li>Tes reviews et notes d'albums</li>
+        <li>Tes reviews et notes de titres</li>
+        <li>Ta watchlist (albums et titres à écouter)</li>
+        <li>Ton profil (pseudo, bio, albums favoris)</li>
+        <li>Ta bibliothèque importée depuis Deezer (fichier CSV local)</li>
+        <li>Tes préférences (couleur accent)</li>
+      </ul>
+      <p>
+        Ces données peuvent être sauvegardées par iCloud Backup si tu as activé cette option
+        dans les réglages iOS — ce processus est géré entièrement par Apple et soumis à
+        <a href="https://www.apple.com/fr/legal/privacy/" target="_blank">leur politique de confidentialité</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Services tiers</h2>
+      <p>
+        Rengaine utilise deux APIs publiques et gratuites pour enrichir l'expérience,
+        sans transmission de données personnelles.
+      </p>
+      <ul>
+        <li>
+          <strong style="color: var(--text)">API Deezer</strong> — recherche d'albums, de titres et d'artistes.
+          Les requêtes envoyées contiennent uniquement des termes de recherche (nom d'artiste, titre d'album).
+          Aucune donnée personnelle n'est transmise. Consulte la
+          <a href="https://www.deezer.com/legal/personal-datas" target="_blank">politique de Deezer</a>.
+        </li>
+        <li>
+          <strong style="color: var(--text)">API Wikipedia (MediaWiki)</strong> — biographies d'artistes.
+          Les requêtes contiennent uniquement le nom de l'artiste consulté.
+          Consulte la <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy" target="_blank">politique de Wikimedia</a>.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Import CSV Deezer</h2>
+      <p>
+        Rengaine propose d'importer ton export de données Deezer (fichier CSV).
+        Ce fichier est lu localement sur ton appareil et jamais envoyé à un serveur externe.
+        Le traitement est entièrement local.
+      </p>
+    </section>
+
+    <section>
+      <h2>Publicités & analytics</h2>
+      <p>
+        Rengaine ne contient aucune publicité. Aucun SDK d'analyse (Firebase, Amplitude,
+        Mixpanel ou équivalent) n'est intégré. Aucune donnée de comportement ou d'usage
+        n'est collectée.
+      </p>
+    </section>
+
+    <section>
+      <h2>Enfants</h2>
+      <p>
+        Rengaine ne collecte aucune donnée, y compris de la part d'enfants de moins de 13 ans.
+        L'application est conforme aux exigences de la COPPA et du RGPD.
+      </p>
+    </section>
+
+    <section>
+      <h2>Tes droits</h2>
+      <p>
+        Puisque toutes tes données restent sur ton appareil, tu as un contrôle total :
+      </p>
+      <ul>
+        <li>Supprimer l'app supprime toutes les données associées</li>
+        <li>Aucune demande de suppression à soumettre — aucun serveur ne te connaît</li>
+        <li>Aucun accès tiers à tes données</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Modifications</h2>
+      <p>
+        Cette politique peut être mise à jour lors de l'ajout de nouvelles fonctionnalités.
+        La date de dernière modification est indiquée en haut de cette page.
+        Les modifications significatives seront signalées dans les notes de mise à jour
+        de l'application.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Pour toute question relative à cette politique de confidentialité, tu peux
+        nous contacter à :
+        <a href="mailto:contact@rengaine.app">contact@rengaine.app</a>
+      </p>
+    </section>
+
+    <footer>
+      <span class="footer-logo">Rengaine</span>
+      <p>© 2025 Rengaine · Tous droits réservés</p>
+    </footer>
+
+  </div>
+</body>
+</html>
